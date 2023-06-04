@@ -1,6 +1,9 @@
-FROM tomcat:8.0-alpine
+FROM node
 
-ADD sample.war /usr/local/tomcat/webapps/
+COPY . .
+
+RUN npm install
 
 EXPOSE 8080
-CMD ["catalina.sh", "run"]
+
+CMD ["node", "server.js"]
